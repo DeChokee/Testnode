@@ -1,4 +1,1 @@
-# Testnode
-sadszasdmkslilsad
-a,sdljusidvjkdv
-asdkahnfuia
+# Lukso Public Testnet 16
