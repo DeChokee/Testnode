@@ -17,4 +17,4 @@
 512GB RAM
 
 # Set up your Lukso public testnet 16 now
-#Option 1 (auto matic)
+# Option 1 (auto matic)
