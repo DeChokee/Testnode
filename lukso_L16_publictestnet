@@ -1,0 +1,43 @@
+# Server Update
+sudo apt update && sudo apt upgrade -y
+
+
+# Install Go
+ver="1.18.2"
+cd $HOME
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
+rm "go$ver.linux-amd64.tar.gz"
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> ~/.bash_profile
+source ~/.bash_profile
+go version
+
+
+# Install Docker
+sudo apt-get remove docker docker-engine docker.io
+sudo apt-get update 
+sudo apt install docker.io -y
+sudo snap install docker
+docker --version
+
+
+# Install dependencies
+sudo apt-get -y update
+sudo apt-get -y install curl
+
+
+# Install Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
+
+
+# Installing Node
+mkdir lukso-l16-testnet && cd lukso-l16-testnet
+sudo curl https://raw.githubusercontent.com/lukso-network/lukso-cli/main/install.sh | sudo bash
+
+echo '=============== SETUP FINISHED ==================='
+echo -e 'To check the status of your validator: \e[1m\e[32mlukso network validator describe\e[0m'
+echo -e " To Check your Logs: \e[1m\e[32mlukso network log consensus -f lukso network log execution -f\e[0m"
